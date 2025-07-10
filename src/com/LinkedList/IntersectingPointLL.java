@@ -53,12 +53,29 @@ public class IntersectingPointLL {
 		}
 		while(t1!=null || t2!=null) {
 			if(t1.next == t2.next) {
-				return t1;
+				return t1.next;
 			}
 			t1 =t1.next;
 			t2 = t2.next;
 		}
 		return null;
+	}
+	
+	private static Node Method3(Node head,Node head1) {
+		if(head == null || head1 == null) return null;
+		
+		Node t1 = head;
+		Node t2 = head1;
+		
+		while(t1!=t2) {
+			t1=t1.next;
+			t2=t2.next;
+			
+			if(t1==null) t1=head1;
+			if(t2==null) t2= head;
+			
+		}
+		return t1;
 	}
 	
 	public static void main(String args[]) {
@@ -90,7 +107,8 @@ public class IntersectingPointLL {
 	    mover1.next = ref;
 
 //	    Node head2 = Method1(head, head1);		
-	    Node head2 = Method2(head,head1);
+//	    Node head2 = Method2(head,head1);
+	    Node head2 = Method3(head,head1);
 	    LinkedList.Traversal(head2);
 	}
 }
