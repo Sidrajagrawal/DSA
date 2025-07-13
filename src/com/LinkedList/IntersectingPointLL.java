@@ -112,3 +112,4 @@ public class IntersectingPointLL {
 	    LinkedList.Traversal(head2);
 	}
 }
+ 
