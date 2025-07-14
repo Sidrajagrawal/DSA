@@ -68,11 +68,8 @@ public class IntersectingPointLL {
 		Node t2 = head1;
 		
 		while(t1!=t2) {
-			t1=t1.next;
-			t2=t2.next;
-			
-			if(t1==null) t1=head1;
-			if(t2==null) t2= head;
+			t1 = (t1!=null) ? t1.next : head1;
+            t2 = (t2!=null) ? t2.next : head;
 			
 		}
 		return t1;
