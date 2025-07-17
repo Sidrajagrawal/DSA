@@ -32,8 +32,8 @@ public class AddTwoNumber {
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = {2,4,6};
-		int[] vrr = {3,8,7};
+		int[] arr = {2,4,3};
+		int[] vrr = {5,6,4};
 		
 		Node head1 = LinkedList.Convert(arr);
 		Node head2 = LinkedList.Convert(vrr);
