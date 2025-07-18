@@ -48,13 +48,13 @@ public class DLL {
     	Node mover = node;
     	if(mover.back == null) {
     		while(mover.next != null) {
-    			System.out.print(mover.data+"->");
+    			System.out.print(mover.data+" <-> ");
     			mover = mover.next;
     		}
     		System.out.print(mover.data);
     	}else {
     		while(mover.back != null) {
-    			System.out.print(mover.data+"->");
+    			System.out.print(mover.data+" <-> ");
     			mover = mover.back;
     		}
     		System.out.print(mover.data);
