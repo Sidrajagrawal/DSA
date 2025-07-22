@@ -7,22 +7,11 @@ public class NextGreater {
 		Stack<Integer> stack = new Stack<>();
 		int[] ng = new int[arr.length];
 		for(int i=arr.length-1; i>=0; i--) {
-			if(stack.isEmpty()) {
-				ng[i] = -1;
-				stack.push(arr[i]);
+			while(!stack.isEmpty() && arr[i] >= stack.peek()) {
+				stack.pop();
 			}
-			else {
-				if(arr[i] < stack.peek()) {
-					ng[i] = stack.peek();
-				}else if(arr[i] >= stack.peek()) {
-					while(!stack.isEmpty() && arr[i] > stack.peek()) {
-						stack.pop();
-					}
-					if(stack.isEmpty()) ng[i] = -1;
-					else ng[i] = stack.peek();
-				}
-				stack.push(arr[i]);
-			}
+			ng[i] = stack.isEmpty() ? -1:stack.peek();
+			stack.push(arr[i]);
 		}
 		System.out.println(Arrays.toString(ng));
 	}
