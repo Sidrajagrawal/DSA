@@ -1,9 +1,9 @@
 package com.Stack;
 import java.util.*;
 
-public class NextSmaller {
+public class PreviousSmaller {
 	public static void main(String args[]) {
-		int[] arr = {5,7,9,6,7,5,4,1,3,7};
+		int[] arr = {3,1,2,4};
 		int[] ng = new int[arr.length];
 		Stack<Integer> stack = new Stack<>();
 		

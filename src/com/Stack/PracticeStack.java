@@ -2,52 +2,19 @@ package com.Stack;
 import java.util.*;
 
 public class PracticeStack {
-	
-	static int priority(char ch) {
-		if(ch == '^') return 3;
-		else if(ch == '*' || ch=='/') return 2;
-		else if(ch == '+' || ch=='-') return 1;
-		return -1;
-	}
-	
-	static StringBuilder Convert(String st) {
-		StringBuilder ans = new StringBuilder();
-		Stack<Character> stack = new Stack<>();
-		for(int i=0; i<st.length(); i++) {
-			char ch = st.charAt(i);
-			
-			if(Character.isLetterOrDigit(ch)) {
-				ans.append(ch);
-			}else if(ch == '(') {
-				stack.push(ch);
-			}else if(ch == ')') {
-				while(!stack.isEmpty() && stack.peek()!='(') {
-					ans.append(stack.pop());
-				}
-				if(!stack.isEmpty() && stack.peek() == '(') {
-					stack.pop();
-				}
-			}else {
-				while(!stack.isEmpty() && priority(ch) <= priority(stack.peek())) {
-					if (ch == '^' && stack.peek() == '^') {
-						break;
-					}
-					ans.append(stack.pop());
-				}
-				stack.push(ch);
-			}
-		}
-		while(!stack.isEmpty()) {
-			if(stack.peek() == '(' || stack.peek() == ')') {
-			}
-			ans.append(stack.pop());
-		}
-		return ans;
-	}
-	
 	public static void main(String args[]) {
-		String st = "a+b*(c^d-e)";
-		System.out.println("Infix Expression: "+st);
-		System.out.println("Postfix Expression: "+Convert(st));
+		int[] arr = {4,5,2,10,8};
+		Stack<Integer> stack = new Stack<>();
+		int[] nsr = new int[arr.length];
+		
+		for(int i=arr.length-1; i>=0; i-- ) {
+			while(!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
+				stack.pop();
+			}
+			nsr[i] = stack.isEmpty() ? -1 : stack.peek();
+			stack.push(i);
+		}
+		System.out.println(Arrays.toString(nsr));
+		
 	}
 }

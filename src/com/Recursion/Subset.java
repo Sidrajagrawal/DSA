@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Subset {
 	public static void main(String[] args) {
-		int[] arr = {1,2,3};
+		int[] arr = {3,1,2,4};
 		List<List<Integer>> list = new ArrayList<>();
 		subset(arr,0,list,new ArrayList<Integer>());
 		System.out.println(list);
