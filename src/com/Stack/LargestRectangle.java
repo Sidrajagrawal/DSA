@@ -33,8 +33,6 @@ public class LargestRectangle {
 		int[] height = {2,1,5,6,2,3};
 		int[] next = nextSmaller(height);
 		int[] prev = previousSmaller(height);
-		System.out.println(Arrays.toString(prev));
-		System.out.println(Arrays.toString(next));
 		int max = Integer.MIN_VALUE;
 		for(int i=0;i<height.length; i++) {
 			int left = i-prev[i];
