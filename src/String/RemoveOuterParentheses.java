@@ -2,14 +2,15 @@ package String;
 
 public class RemoveOuterParentheses {
 	public static void main(String args[]) {
-		String s = "(()())(())";
+		String s ="(()())(())(()(()))";
 		int c=0;
 		StringBuilder ans = new StringBuilder();
 		for(int i=0;i<s.length();i++) {
-			if(s.charAt(i) == ')') c--;
-			if(c!=0) ans.append(s.charAt(i));
-			if(s.charAt(i) == '(') c++;
+			char ch = s.charAt(i);
+			if(ch==')') c--;
+			if(c!=0) ans.append(ch);
+			if(ch=='(') c++;
 		}
-		System.out.println(ans.toString());
+		System.out.println(ans);
 	}
 }
