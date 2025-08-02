@@ -1,9 +1,10 @@
-package com.Stack;
-import java.util.*;
+package Math;
 
-public class PracticeStack {
+import java.util.Arrays;
+
+public class construct_rectangle {
 	public static void main(String args[]) {
-		int area = 122122;
+		int area = 12;
 		int sqrt = (int)Math.sqrt(area);
 		int small = Integer.MAX_VALUE;
 		int [] ans = new int[2];
