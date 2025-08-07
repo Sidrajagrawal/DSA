@@ -1,6 +1,7 @@
 package com.Stack;
 import java.util.*;
-import Math;
+
+import com.Math;
 
 public class AestroidCollisions {
 	public static void main(String args[]) {

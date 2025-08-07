@@ -1,4 +1,4 @@
-package Math;
+package com.Math;
 
 import java.util.Arrays;
 

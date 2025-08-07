@@ -1,4 +1,4 @@
-package Math;
+package com.Math;
 
 public class RectangleOverlap {
 	public static boolean check (int[] rect1,int [] rect2) {
