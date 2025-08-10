@@ -33,7 +33,7 @@ public class sum_root_to_leaf_numbers {
 				return sum*10+root.val;
 			}
 			int l = Number(root.left, sum*10+root.val);
-			int r = Number(root.left, sum*10+root.val);
+			int r = Number(root.right, sum*10+root.val);
 			return l+r;
 		}
 	}

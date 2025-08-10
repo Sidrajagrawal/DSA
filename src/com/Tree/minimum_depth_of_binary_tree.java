@@ -24,7 +24,8 @@ public class minimum_depth_of_binary_tree {
 
 	class Solution {
 		public int minDepth(TreeNode root) {
-			Queue<TreeNode> q = new L
+			Queue<TreeNode> q = new LinkedList<>();
+			
 		}
 	}
 
