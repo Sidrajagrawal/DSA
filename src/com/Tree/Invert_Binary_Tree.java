@@ -1,5 +1,5 @@
 package com.Tree;
-import java.util.;
+import java.util.*;
 
 public class Invert_Binary_Tree {
 	 public class TreeNode {
