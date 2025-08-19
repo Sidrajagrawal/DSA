@@ -23,23 +23,13 @@ public class Practice_tree {
 	}
 
 	class Solution {
-		
-		public boolean isBalanced(TreeNode root) {
-			if(root == null) return true;
-			
-			int lh = ht(root.left);
-			int rh = ht(root.right);
-			if(Math.abs(lh-rh) > 1) return false;
-			return isBalanced(root.left) && isBalanced(root.right);
-		}
-
-		private int ht(TreeNode root) {
-			if(root == null) return 0;
-			
-			int lh = ht(root.left);
-			int rh = ht(root.right);
-			
-			return Math.max(lh,rh)+1;
+		public boolean hasPathSum(TreeNode root, int targetSum) {
+			if(root == null) return false;
+			if(root.left == null && root.right == null) {
+				return targetSum == root.val;
+			}
+			int newSum = targetSum - root.val;
+			return hasPathSum(root.left , newSum) || hasPathSum(root.right , newSum);
 		}
 	}
 }
