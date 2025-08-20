@@ -1,7 +1,5 @@
 package com.Tree;
 
-import java.util.*;
-
 public class Practice_tree {
 	public class TreeNode {
 		int val;
@@ -23,13 +21,23 @@ public class Practice_tree {
 	}
 
 	class Solution {
-		public boolean hasPathSum(TreeNode root, int targetSum) {
-			if(root == null) return false;
-			if(root.left == null && root.right == null) {
-				return targetSum == root.val;
-			}
-			int newSum = targetSum - root.val;
-			return hasPathSum(root.left , newSum) || hasPathSum(root.right , newSum);
+		static int ht(TreeNode root) {
+			if(root == null ) return -1;
+			
+			int lh = ht(root.left);
+			int rh = ht(root.left);
+			return Math.max(lh, rh)+1;
+		}
+		
+		public int diameterOfBinaryTree(TreeNode root) {
+			return diameter(root);
+		}
+		static int diameter(TreeNode root) {
+			if(root == null) return 0;
+			int ld = diameter(root.left);
+			int rd = diameter(root.left);
+			int sd = ht(root.left) + ht(root.right )+2;
+			return Math.max(sd,Math.max(rd, ld));
 		}
 	}
 }
