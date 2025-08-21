@@ -23,10 +23,15 @@ public class minimum_depth_of_binary_tree {
 	}
 
 	class Solution {
-		public int minDepth(TreeNode root) {
-			Queue<TreeNode> q = new LinkedList<>();
-			
-		}
+		  static int ht(TreeNode root) {
+				if(root == null) return 0;
+				int lh = ht(root.left);
+				int rh = ht(root.right);
+				return Math.max(lh, rh)+1;
+			}
+			public int maxDepth(TreeNode root) {
+				return ht(root);
+			}
 	}
 
 }

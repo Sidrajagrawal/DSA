@@ -1,4 +1,4 @@
-package TreeMap;
+package Map;
 
 import java.util.*;
 

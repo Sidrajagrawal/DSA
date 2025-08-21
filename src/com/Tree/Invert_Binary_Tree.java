@@ -23,6 +23,7 @@ public class Invert_Binary_Tree {
 	    	root.right = temp;
 	    	invertTree(root.left);
 	    	invertTree(root.right);
+	    	return root;
 	    }
 	}
 }

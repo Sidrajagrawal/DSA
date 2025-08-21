@@ -1,4 +1,4 @@
-package LinkedHashMap;
+package Map;
 import java.util.*;
 
 public class LinkedHashMap_Demo {
