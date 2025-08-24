@@ -32,10 +32,17 @@ public class All_Elements_in_Two_Binary_Search_Trees {
 			while(i<lst1.size() && j<lst2.size()) {
 				if(lst1.get(i) < lst2.get(j)) {
 					ans.add(lst1.get(i++));
-				}else if(lst1.get(j) < lst2.get(i)) {
-					ans.add(lst1.get(i++));
+				}else{
+					ans.add(lst2.get(j++));
 				}
 			}
+			for(int k = i;k<lst1.size();k++) {
+				ans.add(lst1.get(k));
+			}
+			for(int k = j;k<lst2.size();k++) {
+				ans.add(lst2.get(k));
+			}
+			return ans;
 		}
 
 		private void inorder(TreeNode root,List<Integer> lst) {
