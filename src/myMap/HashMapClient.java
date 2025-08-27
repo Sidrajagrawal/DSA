@@ -1,4 +1,5 @@
-package Map;
+package myMap;
+import java.util.*;
 
 public class HashMapClient {
 	public static void main(String[] args) {
