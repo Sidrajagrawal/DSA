@@ -1,36 +1,59 @@
 package com.Tree;
+
 import java.util.*;
 
 public class Top_View_of_Binary_Tree {
-	class Node{
-	    int data;
-	    Node left;
-	    Node right;
-	    Node(int data){
-	        this.data = data;
-	        left=null;
-	        right=null;
-	    }
+
+	public class TreeNode {
+		int data;
+		TreeNode left;
+		TreeNode right;
+
+		TreeNode(int val) {
+			data = val;
+			left = null;
+			right = null;
+		}
 	}
 
 	class Solution {
-	    static ArrayList<Integer> topView(Node root) {
-	        LinkedHashMap<Integer,Integer> map = new LinkedHashMap<>();
-	        ArrayList<Integer> ans = new ArrayList<>();
-	        inorder(root,map,0);
-	        for(Integer k:map.keySet()) {
-	        	ans.add(map.get(k));
-	        }
-	        return ans;
-	    }
+		class NodePair {
+			TreeNode node;
+			int curr;
 
-		private static void inorder(Node root, LinkedHashMap<Integer,Integer> map,int curr) {
-			// TODO Auto-generated method stub
-			if(root == null) {
-				return;
+			public NodePair(TreeNode node, int curr) {
+				this.node = node;
+				this.curr = curr;
 			}
-			inorder(root.left,map,curr-1);
-			inorder(root.right,map,curr+1);
+		}
+
+		public List<Integer> topView(TreeNode root) {
+			List<Integer> ans = new ArrayList<>();
+			if (root == null)
+				return ans;
+
+			Queue<NodePair> q = new LinkedList<>();
+			Map<Integer, Integer> map = new TreeMap<>();
+
+			q.offer(new NodePair(root, 0));
+
+			while (!q.isEmpty()) {
+				NodePair rv = q.poll();
+
+				if (!map.containsKey(rv.curr)) {
+					map.put(rv.curr, rv.node.data);
+				}
+
+				if (rv.node.left != null) {
+					q.offer(new NodePair(rv.node.left, rv.curr - 1));
+				}
+				if (rv.node.right != null) {
+					q.offer(new NodePair(rv.node.right, rv.curr + 1));
+				}
+			}
+
+			ans.addAll(map.values());
+			return ans;
 		}
 	}
 }
