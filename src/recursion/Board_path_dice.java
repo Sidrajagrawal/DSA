@@ -3,7 +3,7 @@ package recursion;
 public class Board_path_dice {
 	public static void main(String args[]) {
 		int n = 3;
-		int target = 4; 
+		int target = 3;
 		printPath(n,target,0,"");
 	}
 	
