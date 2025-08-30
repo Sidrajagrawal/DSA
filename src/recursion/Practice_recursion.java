@@ -3,13 +3,22 @@ import java.util.*;
 
 public class Practice_recursion {
 	public static void main(String args[]) {
-		int n = 6;
-		System.out.println(fibo(n));
+		int n = 3;
+		int t = 3;
+		path(n,t,0,"");
 	}
 
-	private static int fibo(int n) {
-		if(n == 0 || n == 1) return n;
-		
-		return fibo(n-1) + fibo(n-2);
+	private static void path(int n,int t,int curr,String ans) {
+		// TODO Auto-generated method stub
+		if(curr == t) {
+			System.out.println(ans);
+			return;
+		}
+		if(curr > t) {
+			return;
+		}
+		for(int i=1;i<=3;i++) {
+			path(n,t,curr+i,ans+i);
+		}
 	}
 }
