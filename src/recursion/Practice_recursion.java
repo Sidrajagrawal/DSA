@@ -4,21 +4,20 @@ import java.util.*;
 public class Practice_recursion {
 	public static void main(String args[]) {
 		int n = 3;
-		int t = 3;
-		path(n,t,0,"");
+		generate(n,0,0,"");
 	}
 
-	private static void path(int n,int t,int curr,String ans) {
+	private static void generate(int n,int open,int close,String ans) {
 		// TODO Auto-generated method stub
-		if(curr == t) {
+		if(open == n && close == n) {
 			System.out.println(ans);
 			return;
 		}
-		if(curr > t) {
-			return;
+		if(open < n) {
+			generate(n,open+1, close ,ans+"(");
+		}if(close < open) {
+			generate(n,open, close+1 ,ans+")");
 		}
-		for(int i=1;i<=3;i++) {
-			path(n,t,curr+i,ans+i);
-		}
+		
 	}
 }
