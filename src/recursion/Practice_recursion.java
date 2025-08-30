@@ -4,13 +4,13 @@ import java.util.*;
 public class Practice_recursion {
 	public static void main(String args[]) {
 		int n = 5;
-		print(n);
+		System.out.println(fac(n));
 	}
 
-	private static void print(int n) {
-		if(n == 0) return;
+	private static int fac(int n) {
+		if(n == 0 || n == 1) return 1;
 		
-		System.out.println(n);		
-		print(n-1);
+		return n*fac(n-1);
+		
 	}
 }
