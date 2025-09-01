@@ -1,7 +1,7 @@
 package recursion;
 import java.util.*;
 
-public class Practice_recursion {
+public class Board_path_combination {
 	public static void main(String args[]) {
 		int n = 3;
 		int target = 4;
