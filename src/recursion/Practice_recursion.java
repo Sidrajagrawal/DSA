@@ -3,23 +3,17 @@ import java.util.*;
 
 public class Practice_recursion {
 	public static void main(String args[]) {
-		String ques = "abc";
-		solve(ques,"");
+		int n = 5;
+		System.out.println(solve(n));
 	}
 
-	private static void solve(String ques, String ans) {
+	private static int solve(int n) {
 		// TODO Auto-generated method stub
-		if(ques.isEmpty()) {
-			System.out.println(ans);
-			return;
-		}
+		if(n == 0 || n==1) return n;
 		
-		for(int i=0;i<ques.length();i++) {
-			char ch = ques.charAt(i);
-			String s1 = ques.substring(0,i);
-			String s2 = ques.substring(i+1);
-			solve(s1+s2,ans+ch);
-		}
+		int f1 = solve(n-1);
+		int f2 = solve(n-2);
 		
+		return f1+f2;
 	}
 }
