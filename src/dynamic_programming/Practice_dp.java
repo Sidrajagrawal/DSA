@@ -3,47 +3,47 @@ package dynamic_programming;
 import java.util.*;
 
 public class Practice_dp {
+	static int max = 0;
 	public static void main(String args[]) {
-		int[] arr = {2,7,9,3,1};
-		int[] dp = new int[arr.length];
-		Arrays.fill(dp, -1);
-//		System.out.println(solve(arr,0,dp));
-		System.out.println(solveBU(arr));
+		String s1 = "abc";
+		String s2 = "def";
+		List<String> ls1 = new ArrayList<>();
+		List<String> ls2 = new ArrayList<>();
+		sub(s1,"",ls1);
+		sub(s2,"",ls2);
+		if(ls1.size() < ls2.size()) {
+			travel(ls1,ls2);
+		}else {
+			travel(ls2,ls1);
+		}
+		System.out.println(max);
 	}
 
-	private static int solveBU(int[] arr) {
+	private static void travel(List<String> minLs,List<String> maxLS) {
 		// TODO Auto-generated method stub
-		int [] dp = new int[arr.length];
-		
-		if(arr.length == 1) {
-			return arr[0];
+		for(String s: minLs) {
+			for(String s1: maxLS) {
+				if(s.equals(s1)) {
+					max = Math.max(max,s.length());
+					break;
+				}
+			}
 		}
-		
-		dp[0] = arr[0];
-		dp[1] = Math.max(dp[0], arr[1]);
-		
-		for(int i = 2;i<arr.length;i++) {
-			dp[i] = Math.max(arr[i]+dp[i-2], dp[i-1]);
-		}
-		
-		int max = dp[0];
-		for(int i=0;i<arr.length;i++) {
-			max = Math.max(max, dp[i]);
-		}
-		return max;
 	}
 
-	private static int solve(int[] arr,int i, int[] dp) {
-		if(i >= arr.length) {
-			return 0;
+	private static void sub(String s, String ans,List<String> ls) {
+		// TODO Auto-generated method stub
+		if(s.isEmpty()) {
+			if(!ans.equals("")) {
+				ls.add(ans);	
+			}
+			return;
 		}
 		
-		if(dp[i] != -1) {
-			return dp[i];
-		}
-		int rob = arr[i] + solve(arr,i+2,dp);
-		int Dont_rob =  solve(arr,i+2,dp);
+		char ch = s.charAt(0);
+		sub(s.substring(1),ans,ls);
+		sub(s.substring(1),ans+ch,ls);
 		
-		return dp[i] = Math.max(rob, Dont_rob);
 	}
+
 }
