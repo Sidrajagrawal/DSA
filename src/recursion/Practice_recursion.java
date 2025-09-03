@@ -4,7 +4,8 @@ import java.util.*;
 public class Practice_recursion {
 	public static void main(String args[]) {
 		int n = 5;
-		System.out.println(solve(n));
+//		System.out.println(solve(n));
+		
 	}
 
 	private static int solve(int n) {
