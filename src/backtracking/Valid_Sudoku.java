@@ -7,11 +7,11 @@ public class Valid_Sudoku {
         }
 
         private boolean check(char[][] board, int row, int col) {
-            if (col == board[0].length) { // move to next row
-                row++;
+            if (col == board[0].length) { 
+            	row++;
                 col = 0;
             }
-            if (row == board.length) { // finished all cells
+            if (row == board.length) { 
                 return true;
             }
 
@@ -29,21 +29,21 @@ public class Valid_Sudoku {
         private boolean isSafe(char[][] board, int row, int col) {
             char ch = board[row][col];
 
-            // row check
+            // row
             for (int i = 0; i < board[0].length; i++) {
                 if (i != col && board[row][i] == ch) {
                     return false;
                 }
             }
 
-            // col check
+            // col
             for (int i = 0; i < board.length; i++) {
                 if (i != row && board[i][col] == ch) {
                     return false;
                 }
             }
 
-            // 3x3 subgrid check
+            //Matrix
             int startRow = row - row % 3;
             int startCol = col - col % 3;
             for (int i = startRow; i < startRow + 3; i++) {
