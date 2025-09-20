@@ -1,57 +1,77 @@
 package stack;
 import java.util.*;
-public class PracticeStack {
-	static int[] nextSmaller(int[] arr) {
-		int[] ns = new int[arr.length];
-		Stack<Integer> stack = new Stack<>();
-		for(int i=arr.length-1;i>=0;i--) {
-			while(!stack.isEmpty() && arr[stack.peek()] > arr[i] ) {
-				stack.pop();
-			}
-			ns[i] = stack.isEmpty() ? arr.length : stack.peek();
-			stack.push(i);
-		}
-		return ns;
+
+class Stack{
+	
+	private int[] arr;
+	private int capacity;
+	private int top;
+	
+	public Stack(){
+		this.capacity = 10;
+		this.top = -1;
+		this.arr = new int[capacity];
 	}
-	static int[] prevSmaller(int[] arr) {
-		int[] ps = new int[arr.length];
-		Stack<Integer> stack = new Stack<>();
-		for(int i=0;i<arr.length;i++) {
-			while(!stack.isEmpty() && arr[stack.peek()] >= arr[i] ) {
-				stack.pop();
-			}
-			ps[i] = stack.isEmpty() ? arr.length : stack.peek();
-			stack.push(i);
+	
+	private int[] Increase_Capacity(int[] arr, int capacity) {
+		int[] temp = new int[2*capacity];
+		for(int i=0; i<arr.length; i++) {
+			temp[i] = arr[i];
 		}
-		return ps;
+		return temp;
 	}
-	static int LargestRectangle(int[] height) {
-		int[] prevIndx = prevSmaller(height);
-		int[] nextIndx = nextSmaller(height);
-		int max = Integer.MIN_VALUE;
-		for(int i=0;i<height.length;i++) {
-			int left = i-prevIndx[i];
-			int right = nextIndx[i] - i;
-			int val = height[i]*(left+right-1);
-			max = max < val ? val : max;
+	
+	public void push(int x) {
+		if(top == capacity/2){
+			arr = Increase_Capacity(arr,capacity);
 		}
-		return max;
+		arr[++top] = x;
 	}
-	public static void main(String args[]) {
-		int[][] matrix = {{1,0,1,0,0},{1,0,1,1,1},{1,1,1,1,1},{1,0,0,1,0}};
-		for(int j=0;j<matrix[0].length;j++) {
-			int sum = 0;
-			for(int i=0;i<matrix.length;i++) {
-				sum += matrix[i][j];
-				matrix[i][j] = sum;
-			}
+	
+	public int pop(){
+		if(top == -1) {
+			return -1;
 		}
-		int ans_max = Integer.MIN_VALUE;
-		for(int i=0;i<matrix.length;i++) {
-			int val = LargestRectangle(matrix[i]);
-			ans_max = ans_max < val ? val : ans_max;
-		}
-		System.out.print(ans_max);
+		return arr[top--];
+	}
+	
+	public boolean isEmpty(){
+		if(top == -1) return true;
 		
+		return false;
+	}
+	
+	public int size() {
+		return top;
+	}
+	public void Display() {
+		System.out.print("[ ");
+		for(int i=0;i<=top;i++) {
+			System.out.print(arr[i] +" ");
+		}
+		System.out.print("]");
+	}
+}
+
+public class PracticeStack {	
+	
+	public static void main(String args[]) {		
+		Stack stack = new Stack();
+		stack.push(10);
+		stack.push(11);
+		stack.push(12);
+		stack.push(13);
+		stack.Display();
+		System.out.println(stack.pop());
+		System.out.println(stack.pop());
+		System.out.println(stack.pop());
+		System.out.println(stack.pop());
+		System.out.println(stack.pop());
+		System.out.println(stack.isEmpty());
+		stack.push(11);
+		stack.push(12);
+		stack.push(13);
+		stack.Display();
+		System.out.println(stack.isEmpty());
 	}
 }
