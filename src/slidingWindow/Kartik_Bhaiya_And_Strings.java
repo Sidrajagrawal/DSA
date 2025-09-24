@@ -16,7 +16,7 @@ public class Kartik_Bhaiya_And_Strings {
 		int si = 0, ei = 0, ans = 0, flip = 0;
 		while (ei < str.length()) {
 			// grow
-			if (str.charAt(ei) != si) { 
+			if (str.charAt(ei) == ch) { 
 				flip++;
 			}
 			// shrink

@@ -3,40 +3,31 @@ package slidingWindow;
 import java.util.*;
 
 public class Maximum_Sum_of_Distinct_Subarrays_With_Length_K {
-//	class Solution {
-	public static void main(String args[]) {
-		int[] nums = {1,5,4,2,9,9,9};
-		System.out.println(maximumSubarraySum(nums,3));
+	class Solution {
+		public static long maximumSubarraySum(int[] nums, int k) {
+			long ans = 0, windowSum = 0;
+			HashMap<Integer, Integer> map = new HashMap<>();
+
+			int left = 0;
+			for (int right = 0; right < nums.length; right++) {
+				int val = nums[right];
+				map.put(val, map.getOrDefault(val, 0) + 1);
+				windowSum += val;
+
+				if (right - left + 1 > k) {
+					int removeVal = nums[left++];
+					map.put(removeVal, map.get(removeVal) - 1);
+					if (map.get(removeVal) == 0)
+						map.remove(removeVal);
+					windowSum -= removeVal;
+				}
+
+				if (right - left + 1 == k && map.size() == k) {
+					ans = Math.max(ans, windowSum);
+				}
+			}
+
+			return ans;
+		}
 	}
-	    public static long maximumSubarraySum(int[] nums, int k) {
-	    	HashMap<Integer,Boolean> map = new HashMap<>();
-	    	for(int ele : nums) {
-	    		if(!map.containsKey(ele)) {
-	    			map.put(ele,false);
-	    		}
-	    	}
-	    	int sum = 0;
-	    	int ans = 0;
-	    	int i=0,c=0;
-	    	while(i<k) {
-	    		if(!map.get(nums[i])) {
-		    		map.put(nums[i], true);
-		    		sum += nums[i];
-		    	}
-	    		i++;
-	    	}
-	    	ans = sum;
-	    	while(i<nums.length) {
-	    		map.put(nums[i-k], false);
-	    		if(!map.containsKey(nums[i])) {
-		    		map.put(nums[i], true);
-		    		sum += nums[i];
-		    		sum -= nums[i-k];
-		    		ans = Math.max(ans,sum);
-		    	}
-	    		i++;
-	    	}
-	  	    return ans;
-	    }
-//	}
 }

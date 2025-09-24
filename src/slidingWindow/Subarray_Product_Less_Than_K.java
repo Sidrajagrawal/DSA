@@ -15,7 +15,7 @@ public class Subarray_Product_Less_Than_K {
 	            }
 
 	            //ans
-	            ans = ans+(ei-si+1);
+	            ans = ans+(ei-si+1);  // Jitne Number of Window size hoga utna hi subarray banega
 	            ei++;
 	        }
 	        return ans;
