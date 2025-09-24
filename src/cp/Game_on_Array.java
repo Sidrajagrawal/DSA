@@ -1,7 +1,5 @@
 package cp;
-
 import java.util.*;
-
 public class Game_on_Array {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -26,11 +24,9 @@ public class Game_on_Array {
 			while (true) {
 				int val = choose(map);
 				if(val == 0) break;
-				// Alice
 				if (turn % 2 != 0) {
 					ac = ac + val;
 				}
-				// Bob
 				else {
 					bc = bc + val;
 				}
@@ -42,7 +38,6 @@ public class Game_on_Array {
 	}
 
 	private static int choose(HashMap<Integer, Integer> map) {
-		// TODO Auto-generated method stub
 		int max = 0;
 		int kmax = 0;
 		for (int key : map.keySet()) {
