@@ -13,7 +13,6 @@ public class GraphClient {
 		g.AddEdge(5, 6, 7);
 		g.AddEdge(5, 7, 8);
 		g.AddEdge(7, 6, 4);
-		
-		System.out.println(g.HasPath(1,6));
+		g.PrintPath(1, 6);
 	}
 }

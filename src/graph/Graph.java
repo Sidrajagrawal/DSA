@@ -25,6 +25,7 @@ public class Graph {
 		return map.containsKey(v1);
 	}
 
+	// Number of Edge
 	public int noofEdge() {
 		int sum = 0;
 		for (int vtx : map.keySet()) {
@@ -33,11 +34,13 @@ public class Graph {
 		return sum / 2;
 	}
 
+	// Remove Edge
 	public void removeEdge(int v1, int v2) {
 		map.get(v1).remove(v2);
 		map.get(v2).remove(v1);
 	}
 
+	// Remove Vertex
 	public void removeVertex(int v1) {
 		for (int nbrs : map.get(v1).keySet()) {
 			map.get(nbrs).remove(v1);
@@ -45,12 +48,14 @@ public class Graph {
 		map.remove(v1);
 	}
 
+	// Display
 	public void Display() {
 		for (int v : map.keySet()) {
 			System.out.println(v + " " + map.get(v));
 		}
 	}
 	
+	// Check Path exists or not
 	public boolean HasPath(int src,int des) {
 		HashSet<Integer> visited = new HashSet<>();
 		return HasPath(src,des,visited);
@@ -72,6 +77,27 @@ public class Graph {
 		return false;
 	}
 
+	// Print All Possible Path
+	public void PrintPath(int src, int des) {
+		HashSet<Integer> visited = new HashSet<>();
+		PrintPath(src,des,visited,"");
+	}
+	private void PrintPath(int src, int des,HashSet<Integer> visited,String ans) {
+		if(src == des) {
+			System.out.println(ans+des);
+			return;
+		}
+		visited.add(src);
+		for(int nbrs: map.get(src).keySet()) {
+			if(!visited.contains(nbrs)) {
+				PrintPath(nbrs,des,visited,ans+src);
+				
+			}
+		}
+		visited.remove(src);
+		
+	}
+	
 	public static void main(String[] args) {
 
 	}
