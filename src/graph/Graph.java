@@ -30,25 +30,46 @@ public class Graph {
 		for (int vtx : map.keySet()) {
 			sum += map.get(vtx).size();
 		}
-		return sum/2;
+		return sum / 2;
 	}
-	
+
 	public void removeEdge(int v1, int v2) {
 		map.get(v1).remove(v2);
 		map.get(v2).remove(v1);
 	}
-	
+
 	public void removeVertex(int v1) {
-		for(int nbrs: map.get(v1).keySet()) {
+		for (int nbrs : map.get(v1).keySet()) {
 			map.get(nbrs).remove(v1);
 		}
 		map.remove(v1);
 	}
-	
+
 	public void Display() {
-		for(int v: map.keySet()) {
-			System.out.println(v+" "+map.get(v));
+		for (int v : map.keySet()) {
+			System.out.println(v + " " + map.get(v));
 		}
+	}
+	
+	public boolean HasPath(int src,int des) {
+		HashSet<Integer> visited = new HashSet<>();
+		return HasPath(src,des,visited);
+	}
+	
+	private boolean HasPath(int src, int des, HashSet<Integer> visited) {
+		if (src == des) {
+			return true;
+		}
+		visited.add(src);
+		for (int nbrs : map.get(src).keySet()) {
+			if (!visited.contains(nbrs)) {
+				boolean ans = HasPath(nbrs, des, visited);
+				if (ans) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public static void main(String[] args) {
