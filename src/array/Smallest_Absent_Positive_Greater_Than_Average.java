@@ -1,4 +1,4 @@
-package Array;
+package array;
 
 public class Smallest_Absent_Positive_Greater_Than_Average {
 	class Solution {

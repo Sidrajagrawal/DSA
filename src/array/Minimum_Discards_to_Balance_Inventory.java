@@ -1,4 +1,4 @@
-package Array;
+package array;
 import java.util.*;
 
 public class Minimum_Discards_to_Balance_Inventory {
