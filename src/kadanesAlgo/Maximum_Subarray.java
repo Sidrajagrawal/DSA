@@ -3,9 +3,10 @@ package kadanesAlgo;
 public class Maximum_Subarray {
 
 	public static void main(String[] args) {
-		int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+		int[] nums = { 3,1,2,4 };
 //		int ans = withOutKadnes(nums);
-		int ans =  withKadnes(nums);
+//		int ans =  withKadnes(nums);
+		int ans =  withKadnesMin(nums);
 		System.out.println(ans);
 	}
 
@@ -21,6 +22,18 @@ public class Maximum_Subarray {
 		return max;
 		
 	}
+	private static int withKadnesMin(int[] nums) {
+		// TODO Auto-generated method stub
+		int sum = 0;
+        int min = Integer.MAX_VALUE;
+        for (int ele : nums) {
+            sum += ele;
+            min = Math.min(min, sum);
+            if (sum > 0) sum = 0; // fixed
+        }
+        return min;
+		
+	}
 
 	private static int withOutKadnes(int[] nums) {
 		int max = Integer.MIN_VALUE;
@@ -33,5 +46,6 @@ public class Maximum_Subarray {
 		}
 		return max;
 	}
+	
 
 }
