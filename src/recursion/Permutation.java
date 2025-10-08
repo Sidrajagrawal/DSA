@@ -5,7 +5,7 @@ public class Permutation {
 	public static void main (String args[]) {
 		String s = "abc";
 		permut(s,"");
-		System.out.println(count_permut(s,""));
+//		System.out.println(count_permut(s,""));
 	}
 
 	private static void permut(String s, String ans) {
@@ -42,3 +42,5 @@ public class Permutation {
 		return count;
 	}
 }
+
+

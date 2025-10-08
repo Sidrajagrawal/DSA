@@ -3,22 +3,27 @@ import java.util.*;
 
 public class Practice_recursion {
 	public static void main(String args[]) {
-		int n =3;
-		System.out.println(solve(n," "));
-		
+		String s = "abca";
+		solve(s,"");
 	}
 
-	private static int solve(int n, String p) {
+	private static void solve(String s, String p) {
 		// TODO Auto-generated method stub
-		if(n==0) {
+		if(s.isEmpty()) {
 			System.out.println(p);
-			return 1;
+			return;
 		}
-		char ch = p.charAt(p.length()-1);
-		int ls = 0;
-		int rs = 0;
-		if(ch != 'H') ls = solve(n-1,p+"H");
-		if (ch != 'T') rs = solve(n-1,p+"T");
-		return ls+rs;
+		
+		for(int i=0; i<s.length(); i++) {
+			char ch = s.charAt(i);
+			boolean isCall = false;
+			for(int j=i+1; j<s.length(); j++) {
+				if(ch == s.charAt(j)) isCall = true;
+			}
+			String f = s.substring(0,i);
+			String l = s.substring(i+1);
+			if(isCall == false) solve(f+l, p+ch);
+		}
+		
 	}
 }
