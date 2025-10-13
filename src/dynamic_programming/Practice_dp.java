@@ -1,33 +1,19 @@
 package dynamic_programming;
-
 import java.util.*;
 
 public class Practice_dp {
-	class Solution {
-	    public int lengthOfLIS(int[] nums) {
-	    	return LIS(nums);
-	    }
+	public static void main(String[] args) {
+		int n = 5;
+		int[] dp = new int[n+1];
+		System.out.println(fibo(n,dp));
+	}
 
-		private int LIS(int[] arr) {
-			// TODO Auto-generated method stub
-			int[] LIS = new int[arr.length];
-			Arrays.fill(LIS, 1);
-			
-			for(int i=0;i<arr.length;i++) {
-				for(int j=i-1; j>=0; j--) {
-					if(arr[i] > arr[j]) {
-						int l = LIS[j];
-						LIS[i] = Math.max(l+1, LIS[i]);
-					}
-				}
-			}
-			
-			int max = LIS[0];
-			for(int i=0;i<LIS.length;i++) {
-				max = Math.max(max, LIS[i]);
-			}
-			
-			return max;
-		}
+	private static int fibo(int n, int[] dp) {
+		// TODO Auto-generated method stub
+		if(n == 0 || n==1) return n;
+		if(dp[n]!=0) return dp[n];
+		int lf = fibo(n-1, dp);
+		int rf = fibo(n-2, dp);
+		return dp[n] = lf+rf;
 	}
 }
