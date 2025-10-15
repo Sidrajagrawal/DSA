@@ -56,5 +56,43 @@ public class Graph {
 		}
 	}
 	
+	//Has Path
+	public boolean hasPath(int src, int des) {
+		HashSet<Integer> visited = new HashSet<>();
+		return hasPath(src, des, visited);
+	}
+
+	private boolean hasPath(int src, int des, HashSet<Integer> visited) {
+		if(src == des) return true;
+		
+		visited.add(src);
+		for(int nbrs: map.get(src).keySet()) {
+			if(!visited.contains(nbrs)) {
+				boolean ans = hasPath(nbrs,des,visited);
+				if(ans) return ans;
+			}
+		}
+		
+		return false;
+	}
+	
+	public void printPath(int src, int des) {
+		HashSet<Integer> visited = new HashSet<>();
+		printPath(src, des, visited,""+src);
+	}
+
+	private void printPath(int src, int des, HashSet<Integer> visited, String ans) {
+		if(src == des) {
+			System.out.println(ans);
+			return;
+		}
+		visited.add(src);
+		for(int nbrs: map.get(src).keySet()) {
+			if(!visited.contains(nbrs)) {
+				printPath(nbrs,des,visited,ans+nbrs);
+			}
+		}
+		visited.remove(src);
+	}
 	
 }

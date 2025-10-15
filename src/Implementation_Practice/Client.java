@@ -13,6 +13,7 @@ public class Client {
 		g.AddEdge(7,5,2);
 		g.AddEdge(6,7,3);
 		g.Display();
+		g.printPath(3, 6);
 	}
 
 }

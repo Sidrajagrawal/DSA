@@ -98,6 +98,10 @@ public class Graph {
 		
 	}
 	
+	public HashMap<Integer,HashMap<Integer,Integer>> dataStructure(){
+		return map;
+	}
+	
 	public static void main(String[] args) {
 
 	}
