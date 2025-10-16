@@ -2,8 +2,7 @@ package graph;
 
 import java.util.*;
 
-
-public class BST {
+public class DFT {
 
 	public static void main(String[] args) {
 		// Making Graph
@@ -16,33 +15,33 @@ public class BST {
 		g.AddEdge(5, 6, 7);
 		g.AddEdge(5, 7, 8);
 		g.AddEdge(7, 6, 4);
-		HashMap<Integer,HashMap<Integer,Integer>> map = g.dataStructure();
-		bft(map);
+		HashMap<Integer, HashMap<Integer, Integer>> map = g.dataStructure();
+		dft(map);
 	}
 
-	private static void bft(HashMap<Integer, HashMap<Integer, Integer>> map) {
-		Queue<Integer> q = new LinkedList<>();
+	private static void dft(HashMap<Integer, HashMap<Integer, Integer>> map) {
+		// TODO Auto-generated method stub
+		Stack<Integer> s = new Stack<>();
 		HashSet<Integer> visited = new HashSet<>();
-		
 		for(int vrtx: map.keySet()) {
 			if(visited.contains(vrtx)) continue;
-			q.add(vrtx);
-			while(!q.isEmpty()) {
+			
+			s.push(vrtx);
+			while(!s.isEmpty()) {
 				//Remove
-				int rv = q.poll();
-				//Ignore
+				int rv = s.pop();
+				//ignore
 				if(visited.contains(rv)) continue;
 				//Marked as Visited
 				visited.add(rv);
 				//Self work
-				System.out.print(rv+ " ");
+				System.out.print(rv+" ");
 				//Add unvisited nbrs
 				for(int nbrs: map.get(rv).keySet()) {
-					if(!visited.contains(nbrs)) q.add(nbrs);
+					if(!visited.contains(nbrs)) s.push(nbrs);
 				}
 			}
 		}
 	}
-	
 
 }
