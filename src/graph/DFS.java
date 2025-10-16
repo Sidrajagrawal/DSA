@@ -1,7 +1,9 @@
 package graph;
+
 import java.util.*;
 
-public class BFS {
+public class DFS {
+
 	public static void main(String[] args) {
 		// Making Graph
 		Graph g = new Graph(7);
@@ -14,29 +16,28 @@ public class BFS {
 		g.AddEdge(5, 7, 8);
 		g.AddEdge(7, 6, 4);
 		HashMap<Integer,HashMap<Integer,Integer>> map = g.dataStructure();
-		System.out.println(bfs(1,6,map));
+		System.out.println(dfs(1,6,map));
 	}
 
-	private static boolean bfs(int src, int des,HashMap<Integer,HashMap<Integer,Integer>> map) {
-		Queue<Integer> q = new LinkedList<>();
+	private static boolean dfs(int src, int des, HashMap<Integer, HashMap<Integer, Integer>> map) {
+		Stack<Integer> s = new Stack<>();
 		HashSet<Integer> visited = new HashSet<>();
-		q.add(src);
-		while(!q.isEmpty()) {
+		s.push(src);
+		while(!s.isEmpty()) {
 			//Remove
-			int r = q.poll();
+			int r = s.pop();
 			//Ignore
 			if(visited.contains(r)) continue;
-			
-			//Mark as Visited
+			//Marks as visited
 			visited.add(r);
-			//Self Work
+			//Self word
 			if(r == des) return true;
-			
-			//Add unvisited nbrs
+			//Add Unvisited nbrs
 			for(int nbrs: map.get(r).keySet()) {
-				if(!visited.contains(nbrs)) q.add(nbrs);
+				if(!visited.contains(nbrs)) s.push(nbrs);
 			}
 		}
 		return false;
 	}
+	
 }
