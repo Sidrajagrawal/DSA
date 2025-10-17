@@ -32,6 +32,7 @@ public class Is_Graph_Bipartite {
 	    		}
 	    		
 	    	}
+			return false;
 	    	
 	    }
 	}
