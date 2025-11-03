@@ -1,7 +1,7 @@
 package linkedList;
 
 public class DLL {
-
+//Node class creation
     static class Node {
         int data;
         Node next;
