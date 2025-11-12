@@ -13,7 +13,6 @@ public class Find_length_of_Loop {
 
 	class Solution {
 		public int lengthOfLoop(Node head) {
-			// code here
 			if (head == null)
 				return 0;
 			Node fast = head;
