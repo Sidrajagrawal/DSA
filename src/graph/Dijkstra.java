@@ -27,7 +27,7 @@ public class Dijkstra {
 		}
 		@Override
 		public String toString() {
-			return vtx + " " + acqpath + " @ " + cost;
+			return vtx + " " + acqpath + " @" + cost;
 		}
 	}
 	public void Dijkstra_algo() {
