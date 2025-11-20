@@ -11,7 +11,7 @@ public class Dijkstra {
 		}
 	}
 	
-	public void addEdge(int v1, int v2, int cost) {
+	public void AddEdge(int v1, int v2, int cost) {
 		map.get(v1).put(v2, cost);
 		map.get(v2).put(v1, cost);
 	}
@@ -56,14 +56,14 @@ public class Dijkstra {
 	}
 	public static void main(String[] args) {
 		Dijkstra g = new Dijkstra(7);			
-		g.addEdge(1, 4, 7);				
-		g.addEdge(1, 2, 4);	
-		g.addEdge(2, 3, 1);	
-		g.addEdge(3, 4, 1);	
-		g.addEdge(4, 5, 5);	
-		g.addEdge(5, 6, 2);	
-		g.addEdge(5, 7, 3);	
-		g.addEdge(6, 7, 1);
+        g.AddEdge(1, 3, 2);
+        g.AddEdge(1, 2, 7);
+        g.AddEdge(4, 2, 1);
+        g.AddEdge(4, 3, 1);
+        g.AddEdge(5, 3, 7);
+        g.AddEdge(5, 6, 3);
+        g.AddEdge(5, 7, 5);
+        g.AddEdge(7, 6, 1);
 		g.Dijkstra_algo();
 	}
 }

@@ -29,7 +29,7 @@ public class Kruskal_Algorithm {
 		}
 
 		public String toString() {
-			return e1 + "-" + e2 + "@" + cost;
+			return e1 + "-" + e2 + "@	" + cost;
 		}
 	}
 
