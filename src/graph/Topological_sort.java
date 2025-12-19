@@ -30,7 +30,7 @@ public class Topological_sort {
 			// remove
 			int rv = q.poll();
 			// work
-			System.out.println(rv);
+			System.out.print(rv+" ");
 			// nbrs
 			for (int nbrs : map.get(rv).keySet()) {
 				ind[nbrs]--;
@@ -39,6 +39,27 @@ public class Topological_sort {
 			}
 
 		}
+	}
+	
+	public boolean icCylce() {
+		Queue<Integer> q = new LinkedList<Integer>();
+		int[] ind = indegree();
+		for(int i=1; i<ind.length; i++) {
+			if(ind[i] == 0) q.add(i);
+		}
+		int c=0;
+		while(!q.isEmpty()) {
+			//remove
+			int rv = q.poll();
+			//work
+			c++;
+			//nbrs
+			for(int nbrs: map.get(rv).keySet()) {
+				ind[nbrs]--;
+				if(ind[nbrs] == 0) q.add(nbrs);
+			}
+		}
+		return c != map.size();
 	}
 
 	public int[] indegree() {
@@ -63,6 +84,7 @@ public class Topological_sort {
 		ts.AddEdge(7, 3);
 		ts.AddEdge(7, 6);
 		ts.TopologicalSort();
+		System.out.println(ts.icCylce());
 
 	}
 }
