@@ -18,9 +18,8 @@ public class Minimum_Path_Sum {
 				return grid[cr][cc];
 			int right = minPath(grid, cr, cc + 1, dp);
 			int down = minPath(grid, cr + 1, cc, dp);
+//			System.out.println(grid[cr][cc]);
 			return dp[cr][cc] = grid[cr][cc] + Math.min(right, down);
-
 		}
 	}
 }
-//
