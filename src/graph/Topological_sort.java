@@ -37,7 +37,7 @@ public class Topological_sort {
 				if (ind[nbrs] == 0)
 					q.add(nbrs);
 			}
-
+//
 		}
 	}
 	
