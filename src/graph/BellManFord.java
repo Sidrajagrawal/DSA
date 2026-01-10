@@ -54,7 +54,7 @@ public class BellManFord {
 					dp[e.e2] = dp[e.e1] + e.cost;
 				}
 			}
-		}
+		}//
 		for(int i = 1; i<dp.length; i++) {
 			System.out.print(dp[i] + " ");
 		}
