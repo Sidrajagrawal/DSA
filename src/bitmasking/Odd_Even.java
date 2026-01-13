@@ -1,6 +1,5 @@
 package bitmasking;
 
-import java.util.*;
 
 public class Odd_Even {
 	public static void main(String[] args) {
@@ -15,3 +14,6 @@ public class Odd_Even {
 	}
 
 }
+// ... 2^3 * 2^2 * 2^1 * 2^0
+// if 2^0 is there means odd otherwise even because 2^0 = 1 which make it odd
+// That's why we check n&1==0--> Even because 1001(9) & 0001 --> 1&1 = 1 so it's odd and yes 9 is odd proof
