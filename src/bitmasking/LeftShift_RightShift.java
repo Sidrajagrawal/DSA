@@ -14,14 +14,15 @@ public class LeftShift_RightShift {
 		
 		//Right Shift
 		// m / 2^k
-		int m = 16;
+		int m = 17;
 		System.out.println(m >> 1); 
 		System.out.println(m >> 2); 
 		System.out.println(m >> 3); 
-		System.out.println(m >> 4); 
 		
 		//eg: 16(00010000) >> 1 --> 00001000(8) means 16 / 2^1
 		//eg: 16(00010000) >> 2 --> 00000100(4) means 16 / 2^2
+		
+		// In Minus m we get if odd eg: 17 >> 1 --> -9 , 17 >> 2 --> -5 (one more);
 	}
 
 }
