@@ -19,6 +19,8 @@ public class Count_set_bit {
 			n = (n&(n-1));
 		}
 		return c;
+		
+		// 1001011(75) & 1001010(74) --> 010
 	}
 
 	private static int Method2(int n) {
